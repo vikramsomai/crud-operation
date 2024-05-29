@@ -1,0 +1,28 @@
+<div class="login-container">
+    <h1>Login</h1>
+    <form [formGroup]="loginForm">
+    @if(isError){
+        <p style="color:red">Please fill email and password</p>
+    }
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Enter the Email" formControlName="email">
+        @if(loginForm.controls['email'].hasError('required')){
+            <mat-error>Please fill email</mat-error>
+        }
+        @else if (loginForm.controls['email'].hasError('email')) {
+            <mat-error>Please fill correct email address</mat-error>
+        }
+      
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter the Email" formControlName="password">
+        @if(loginForm.controls['password'].hasError('required')){
+            <mat-error>Please fill Password</mat-error>
+        }
+      </mat-form-field>
+     
+      <button mat-raised-button color="primary" (click)="login()">login</button>
+    </form>
+</div>

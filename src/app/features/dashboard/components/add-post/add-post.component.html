@@ -1,0 +1,27 @@
+<div class="addpost-container">
+    <h1>Add post</h1>
+    <form [formGroup]="postForm">
+        <p>
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>Title</mat-label>
+              <input matInput placeholder="Enter title" formControlName="title">
+              @if(postForm.controls['title'].hasError('required')){
+                <mat-error>Please fill title field</mat-error>
+              }
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>Body</mat-label>
+              <input matInput placeholder="Enter Body" formControlName="body">
+              @if(postForm.controls['body'].hasError('required')){
+                <mat-error>Please fill title field</mat-error>
+              }
+            </mat-form-field>
+          </p>
+      <div class="btn-group">
+        <button mat-raised-button (click)="addPost()" color="primary">Add post</button>
+        <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+      </div>
+    </form>
+</div>

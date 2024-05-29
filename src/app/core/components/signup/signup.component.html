@@ -1,0 +1,42 @@
+<div class="signup-container">
+    <h1>Register</h1>
+    <form [formGroup]="signupForm">
+        @if(isError){
+            <p style="padding: 4px 20px;color:red">{{errorMessage}}</p>
+        }
+        <mat-form-field appearance="outline">
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Enter the username" formControlName="username">
+        @if(signupForm.controls['username'].hasError('required')){
+            <mat-error>Please fill username</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Enter the Email" type="email" formControlName="email">
+        @if(signupForm.controls['email'].hasError('required')){
+            <mat-error>Please fill email</mat-error>
+        } @else if (signupForm.controls['email'].hasError('email')) {
+            <mat-error>Please fill correct email address</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput placeholder="Enter the Email"  type="password" formControlName="password">
+        @if(signupForm.controls['password'].hasError('required')){
+            <mat-error>Please fill password</mat-error>
+        }
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>User role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option value="admin">Admin</mat-option>
+          <mat-option value="user">User</mat-option>
+        </mat-select>
+        @if(signupForm.controls['role'].hasError('required')){
+            <mat-error>Please select role</mat-error>
+        }
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="signup()">Register</button>
+    </form>
+</div>

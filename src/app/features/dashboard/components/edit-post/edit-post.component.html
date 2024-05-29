@@ -1,0 +1,25 @@
+<div class="edit-post-container">
+    <h1>Edit post</h1>
+    <form [formGroup]="postEditForm">
+        <p>
+            <mat-form-field appearance="outline"  class="input">
+              <mat-label>Title</mat-label>
+              <input matInput placeholder="Enter title" [value]="data['title']" #title>
+              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="outline" class="input">
+              <mat-label>Body</mat-label>
+              <input matInput placeholder="Enter Body" [value]="data['body']" #body>
+              <!-- <mat-icon matSuffix>sentiment_very_satisfied</mat-icon> -->
+              <!-- <mat-hint>Hint</mat-hint> -->
+            </mat-form-field>
+          </p>
+      <div class="btn-group">
+        <button mat-raised-button (click)="updatePost(data['id'])" color="primary">Update post</button>
+        <button mat-raised-button (click)="cancel()" color="warn">Cancel</button>
+      </div>
+    </form>
+</div>

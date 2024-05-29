@@ -1,0 +1,16 @@
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span appHighlight>Crud operation</span>
+    <span class="example-spacer"></span>
+    @if(isLogin==true){
+        <button mat-raised-button color="primary">Manage Data</button>
+        <button mat-raised-button (click)="logout()">Logout</button>
+    }
+    @else{
+    <button mat-raised-button routerLink="login" color="primary">Login</button>
+    <button mat-raised-button routerLink="register" color="accent">Signup</button>
+    }
+  </mat-toolbar>
+  
